@@ -11,22 +11,22 @@ public class TicketBooking {
         Movie m3 = new Movie();
         Movie m4 = new Movie();
         Movie m5 = new Movie();
-        Movie[] MovieList = {m1,m2,m3,m4,m5};
+        Movie[] MovieList = {m1, m2, m3, m4, m5};
 
 
-        Thread user1 = new Thread(new User("user1",MovieList));
+        Thread user1 = new Thread (new User("user1", MovieList));
         user1.start();
 
-        Thread user2 = new Thread(new User("user2",MovieList));
+        Thread user2 = new Thread (new User("user2", MovieList));
         user2.start();
 
-        Thread user3 = new Thread(new User("user3",MovieList));
+        Thread user3 = new Thread (new User("user3", MovieList));
         user3.start();
 
-        Thread user4 = new Thread(new User("user4",MovieList));
+        Thread user4 = new Thread (new User("user4", MovieList));
         user4.start();
 
-        Thread user5 = new Thread(new User("user5",MovieList));
+        Thread user5 = new Thread (new User("user5", MovieList));
         user5.start();
 
     }
@@ -38,7 +38,7 @@ class User extends Thread {
     String Username;
     Movie[] MovieList;
 
-    public User(String name,Movie[] list)
+    public User(String name, Movie[] list)
     {
         Username = name;
         MovieList = list;
@@ -69,16 +69,16 @@ class User extends Thread {
                 MovieList[NumM].TicketNumber += NumT;
                 System.out.println(Username + " deny Movie" + NumM + " return " + NumT + " ticket");
             } else {
-                System.out.println(Username + " watch Movie" + NumM + " with " + NumT + " ticket");
+                if (MovieList[NumM].getTicketNumber() < 0)
+                {
+                    System.out.println(Username + " can not book ticket because this seat booked");
+                    MovieList[NumM].TicketNumber = 0;
+                } else {
+                    System.out.println(Username + " watch Movie" + NumM + " with " + NumT + " ticket");
+                }
             }
 
-            if (MovieList[NumM].getTicketNumber() < 0)
-            {
-                System.out.println(Username + " can not book ticket because this seat booked");
-                MovieList[NumM].TicketNumber = 0;
-            }else {
-                System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
-            }
+            System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
         }
 
     }

@@ -14,7 +14,7 @@ public class Movie {
 
     public void reserve(int n)
     {
-        TicketNumber-=n;
+        TicketNumber -= n;
     }
 
     public int getTicketNumber()
