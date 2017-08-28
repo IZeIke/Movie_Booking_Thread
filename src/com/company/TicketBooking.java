@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.Random;
 
-
 public class TicketBooking {
 
     public static void main(String[] args) {
@@ -20,6 +19,15 @@ public class TicketBooking {
 
         Thread user2 = new Thread(new User("user2",MovieList));
         user2.start();
+
+        Thread user3 = new Thread(new User("user3",MovieList));
+        user3.start();
+
+        Thread user4 = new Thread(new User("user4",MovieList));
+        user4.start();
+
+        Thread user5 = new Thread(new User("user5",MovieList));
+        user5.start();
 
     }
 }
@@ -63,9 +71,10 @@ class User extends Thread {
             } else {
                 System.out.println(Username + " watch Movie" + NumM + " with " + NumT + " ticket");
             }
-            if(MovieList[NumM].getTicketNumber() < 0)
+
+            if (MovieList[NumM].getTicketNumber() < 0)
             {
-                System.out.println("การจองไม่สำเร็จเพราะ"+Username+"จองตั๋วซ้ำ"+"และ Movie" + NumM+"มีจำนวนที่นั่งเต็มแล้ว");
+                System.out.println(Username + " can not book ticket because this seat booked");
                 MovieList[NumM].TicketNumber = 0;
             }else {
                 System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
