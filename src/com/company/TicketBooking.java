@@ -69,8 +69,7 @@ class User extends Thread {
                 MovieList[NumM].TicketNumber += NumT;
                 System.out.println(Username + " deny Movie" + NumM + " return " + NumT + " ticket");
             } else {
-                if (MovieList[NumM].getTicketNumber() < 0)
-                {
+                if (MovieList[NumM].getTicketNumber() < 0) {
                     System.out.println(Username + " can not book ticket because this seat booked");
                     MovieList[NumM].TicketNumber = 0;
                 } else {
@@ -78,9 +77,13 @@ class User extends Thread {
                 }
             }
 
-            System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
+            if (MovieList[NumM].getTicketNumber() < 0) {
+                System.out.println(Username + " can not book ticket because this seat booked");
+                MovieList[NumM].TicketNumber = 0;
+            } else {
+                System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
+            }
         }
 
     }
-
 }
