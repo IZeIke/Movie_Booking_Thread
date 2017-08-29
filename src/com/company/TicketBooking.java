@@ -78,11 +78,10 @@ class User extends Thread {
             }
 
             if (MovieList[NumM].getTicketNumber() < 0) {
-                System.out.println(Username + " can not book ticket because this seat booked");
                 MovieList[NumM].TicketNumber = 0;
-            } else {
-                System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
             }
+
+            System.out.println("Movie" + NumM + " have " + MovieList[NumM].getTicketNumber() + " tickets");
         }
 
     }
