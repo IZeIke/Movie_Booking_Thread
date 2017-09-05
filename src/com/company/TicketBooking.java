@@ -49,7 +49,7 @@ class User extends Thread {
     Random decision = new Random();
 
     @Override
-    public void run() {
+    public synchronized void run() {
         while(true) {
 
             int NumM = randMovie.nextInt(5);
