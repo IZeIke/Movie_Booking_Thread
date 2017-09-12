@@ -1,3 +1,6 @@
+เมื่อเราใส่ synchronized ตรง function run จะทำให้แต่ละ Thread ทำงานไม่ซ้อนกัน
+จะมีการ lock ไม่ให้ object อื่นเข้าถึงจนกว่าจะทำงานเสร็จ
+
 File Movie.java
 	
 	มี class Movie เพื่อจะใช้แทนหนังแต่ละเรื่อง 
